@@ -1,3 +1,3 @@
-module github.com/nanachi-sh/rainy-share
+module share
 
 go 1.25.1
