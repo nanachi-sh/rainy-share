@@ -1,4 +1,4 @@
-package main
+package share
 
 type Sender interface {
 	Send([]byte)
