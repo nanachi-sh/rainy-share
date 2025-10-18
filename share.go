@@ -40,13 +40,16 @@ type MessageSender struct {
 }
 
 type Content struct {
-	OfText *TText
-	OfAt   *TAt
+	OfText  *TText
+	OfAt    *TAt
+	OfReply *TReply
 }
 
 type TText string
 
 type TAt string
+
+type TReply string
 
 func Text(text string) Content {
 	return Content{OfText: (*TText)(&text)}
@@ -54,4 +57,8 @@ func Text(text string) Content {
 
 func At(user_id string) Content {
 	return Content{OfAt: (*TAt)(&user_id)}
+}
+
+func Reply(message_id string) Content {
+	return Content{OfReply: (*TReply)(&message_id)}
 }
