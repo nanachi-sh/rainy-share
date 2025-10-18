@@ -1,5 +1,18 @@
 package share
 
+type Logger interface {
+	Log(LogLevel, ...any)
+}
+
+type LogLevel string
+
+const (
+	DEBUG LogLevel = "DEBUG"
+	INFO  LogLevel = "INFO"
+	WARN  LogLevel = "WARN"
+	ERROR LogLevel = "ERROR"
+)
+
 type Sender interface {
 	Send([]byte)
 }
