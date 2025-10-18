@@ -1,5 +1,17 @@
 package share
 
+type Config struct {
+	Version   string
+	Websocket Config_websocket
+	WhiteList []string
+}
+
+type Config_websocket struct {
+	Addr  string
+	Port  int
+	Token string
+}
+
 type Logger interface {
 	Log(LogLevel, ...any)
 }
