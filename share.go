@@ -55,6 +55,7 @@ type Content struct {
 	OfText  *TText
 	OfAt    *TAt
 	OfReply *TReply
+	OfImage *TImage
 }
 
 type TText string
@@ -62,6 +63,8 @@ type TText string
 type TAt string
 
 type TReply string
+
+type TImage string
 
 func Text(text string) Content {
 	return Content{OfText: (*TText)(&text)}
@@ -73,4 +76,8 @@ func At(user_id string) Content {
 
 func Reply(message_id string) Content {
 	return Content{OfReply: (*TReply)(&message_id)}
+}
+
+func Image(url string) Content {
+	return Content{OfImage: (*TImage)(&url)}
 }
