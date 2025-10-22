@@ -31,11 +31,12 @@ type Sender interface {
 }
 
 type Builder interface {
-	SendGroupMessage(group_id string, contents ...Content) []byte
+	SendGroupMessage(echo string, group_id string, contents ...Content) []byte
 }
 
 type Message interface {
 	OfGroup() MessageGroup
+	OfEvent() MessageEvent
 }
 
 type MessageGroup interface {
@@ -45,6 +46,10 @@ type MessageGroup interface {
 	GetMessageId() string
 	GetSender() MessageSender
 	GetGroupID() string
+}
+
+type MessageEvent interface {
+	Response() (echo string, data map[string]any)
 }
 
 type MessageSender struct {
