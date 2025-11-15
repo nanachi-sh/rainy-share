@@ -3,8 +3,16 @@ package share
 type Config struct {
 	Version   string
 	Websocket Config_websocket
+	Minecraft Config_minecraft
 	WhiteList []string
 	FilterQQ  []string
+}
+
+type Config_minecraft struct {
+	Addr       string
+	Port       int
+	HexModChan string
+	HexModList string
 }
 
 type Config_websocket struct {
